@@ -43,7 +43,10 @@ class CatalogoActivity : AppCompatActivity() {
     }
 
     private fun escucharDestinos() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
+
         db.collection("destinos")
+            .whereEqualTo("userId", uid)
             .addSnapshotListener { snapshot, error ->
                 if (error != null || snapshot == null) return@addSnapshotListener
 

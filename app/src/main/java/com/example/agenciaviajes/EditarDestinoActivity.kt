@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.agenciaviajes.databinding.ActivityEditarDestinoBinding
 import com.example.agenciaviajes.model.Destino
 import com.example.agenciaviajes.util.ImageStorageHelper
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.File
 
@@ -126,7 +127,8 @@ class EditarDestinoActivity : AppCompatActivity() {
             pais = pais,
             precio = precio,
             descripcion = descripcion,
-            imagenPath = rutaFinal
+            imagenPath = rutaFinal,
+            userId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
         )
 
         db.collection("destinos").document(destinoId).set(destinoActualizado)
