@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.agenciaviajes.databinding.ActivityCatalogoBinding
 import com.example.agenciaviajes.model.Destino
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CatalogoActivity : AppCompatActivity() {
@@ -32,8 +33,13 @@ class CatalogoActivity : AppCompatActivity() {
             startActivity(Intent(this, CrearDestinoActivity::class.java))
         }
 
-        escucharDestinos()
+        binding.btnCerrarSesion.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
+        escucharDestinos()
     }
 
     private fun escucharDestinos() {

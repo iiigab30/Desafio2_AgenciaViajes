@@ -36,4 +36,6 @@
     <string name="confirmar_eliminar_mensaje">¿Estás seguro de que deseas eliminar este destino? Esta acción no se puede deshacer.</string>
     <string name="si">Sí</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="btn_cerrar_sesion">Cerrar sesión</string>
 </resources>
