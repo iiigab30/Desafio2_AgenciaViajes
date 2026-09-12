@@ -23,7 +23,7 @@ class CatalogoActivity : AppCompatActivity() {
         adapter = DestinoAdapter(
             listaDestinos,
             onEditar = { destino -> abrirEditar(destino) },
-            onEliminar = { destino -> /* lo conectamos en la Parte 8 */ }
+            onEliminar = { destino -> confirmarEliminar(destino) },
         )
         binding.rvDestinos.layoutManager = LinearLayoutManager(this)
         binding.rvDestinos.adapter = adapter
@@ -52,5 +52,16 @@ class CatalogoActivity : AppCompatActivity() {
         val intent = Intent(this, EditarDestinoActivity::class.java)
         intent.putExtra("destinoId", destino.id)
         startActivity(intent)
+    }
+
+    private fun confirmarEliminar(destino: Destino) {
+        android.app.AlertDialog.Builder(this)
+            .setTitle(getString(R.string.confirmar_eliminar_titulo))
+            .setMessage(getString(R.string.confirmar_eliminar_mensaje))
+            .setPositiveButton(getString(R.string.si)) { _, _ ->
+                db.collection("destinos").document(destino.id).delete()
+            }
+            .setNegativeButton(getString(R.string.cancelar), null)
+            .show()
     }
 }
