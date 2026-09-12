@@ -1,5 +1,6 @@
 package com.example.agenciaviajes
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,7 +28,12 @@ class CatalogoActivity : AppCompatActivity() {
         binding.rvDestinos.layoutManager = LinearLayoutManager(this)
         binding.rvDestinos.adapter = adapter
 
+        binding.fabAgregar.setOnClickListener {
+            startActivity(Intent(this, CrearDestinoActivity::class.java))
+        }
+
         escucharDestinos()
+
     }
 
     private fun escucharDestinos() {

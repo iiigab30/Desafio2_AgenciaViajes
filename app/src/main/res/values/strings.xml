@@ -12,4 +12,23 @@
     <string name="btn_editar">Editar</string>
     <string name="btn_eliminar">Eliminar</string>
     <string name="agregar_destino">Agregar destino</string>
+    <string name="titulo_crear">Nuevo destino</string>
+    <string name="nombre_hint">Nombre del destino</string>
+    <string name="precio_hint">Precio</string>
+    <string name="descripcion_hint">Descripción (mínimo 20 caracteres)</string>
+    <string name="btn_seleccionar_imagen">Seleccionar imagen</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="error_precio_invalido">El precio debe ser un número mayor a 0</string>
+    <string name="error_descripcion_corta">La descripción debe tener al menos 20 caracteres</string>
+    <string name="error_imagen_requerida">Debes seleccionar una imagen</string>
+
+    <string-array name="lista_paises">
+        <item>El Salvador</item>
+        <item>México</item>
+        <item>España</item>
+        <item>Costa Rica</item>
+        <item>Colombia</item>
+        <item>Francia</item>
+        <item>Japón</item>
+    </string-array>
 </resources>
