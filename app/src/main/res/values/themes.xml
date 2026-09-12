@@ -1,10 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AgenciaViajes" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+        <!-- Color principal -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/colorPrimary</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <!-- Color secundario / acento -->
         <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/colorAccent</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+
+        <!-- Fondo y superficie -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="Theme.AgenciaViajes" parent="Base.Theme.AgenciaViajes" />
