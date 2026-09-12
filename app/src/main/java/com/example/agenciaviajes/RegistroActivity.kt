@@ -44,7 +44,8 @@ class RegistroActivity : AppCompatActivity() {
 
         auth.createUserWithEmailAndPassword(correo, password)
             .addOnSuccessListener {
-                finish() // cuenta creada, regresa al login (o luego al catálogo)
+                startActivity(Intent(this, CatalogoActivity::class.java))
+                finish()
             }
             .addOnFailureListener { error ->
                 mostrarError(error.localizedMessage ?: "Error al registrar usuario")

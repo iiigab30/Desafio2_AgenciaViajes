@@ -29,6 +29,13 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser != null) {
+            irACatalogo()
+        }
+    }
+
     private fun intentarLogin() {
         val correo = binding.etCorreo.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
@@ -40,13 +47,16 @@ class LoginActivity : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(correo, password)
             .addOnSuccessListener {
-                // Login exitoso — por ahora solo cerramos esta pantalla.
-                // En la Parte 4 la conectamos con el catálogo.
-                finish()
+                irACatalogo()
             }
             .addOnFailureListener { error ->
                 mostrarError(error.localizedMessage ?: "Error al iniciar sesión")
             }
+    }
+
+    private fun irACatalogo() {
+        startActivity(Intent(this, CatalogoActivity::class.java))
+        finish() // cierra LoginActivity para que el usuario no pueda "regresar" con el botón atrás
     }
 
     private fun mostrarError(mensaje: String) {
