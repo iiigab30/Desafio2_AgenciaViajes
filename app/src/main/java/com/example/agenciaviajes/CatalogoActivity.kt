@@ -22,7 +22,7 @@ class CatalogoActivity : AppCompatActivity() {
 
         adapter = DestinoAdapter(
             listaDestinos,
-            onEditar = { destino -> /* lo conectamos en la Parte 7 */ },
+            onEditar = { destino -> abrirEditar(destino) },
             onEliminar = { destino -> /* lo conectamos en la Parte 8 */ }
         )
         binding.rvDestinos.layoutManager = LinearLayoutManager(this)
@@ -46,5 +46,11 @@ class CatalogoActivity : AppCompatActivity() {
                 }
                 adapter.actualizarLista(destinos)
             }
+    }
+
+    private fun abrirEditar(destino: Destino) {
+        val intent = Intent(this, EditarDestinoActivity::class.java)
+        intent.putExtra("destinoId", destino.id)
+        startActivity(intent)
     }
 }
