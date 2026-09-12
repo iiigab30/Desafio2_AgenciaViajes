@@ -9,4 +9,7 @@
     <string name="error_campos_vacios">Todos los campos son obligatorios</string>
     <string name="titulo_registro">Crear cuenta</string>
     <string name="error_password_corta">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="agregar_destino">Agregar destino</string>
 </resources>

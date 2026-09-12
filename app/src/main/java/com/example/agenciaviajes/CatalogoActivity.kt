@@ -1,20 +1,44 @@
 package com.example.agenciaviajes
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.agenciaviajes.databinding.ActivityCatalogoBinding
+import com.example.agenciaviajes.model.Destino
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CatalogoActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCatalogoBinding
+    private val db = FirebaseFirestore.getInstance()
+    private lateinit var adapter: DestinoAdapter
+    private val listaDestinos = mutableListOf<Destino>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_catalogo)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityCatalogoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        adapter = DestinoAdapter(
+            listaDestinos,
+            onEditar = { destino -> /* lo conectamos en la Parte 7 */ },
+            onEliminar = { destino -> /* lo conectamos en la Parte 8 */ }
+        )
+        binding.rvDestinos.layoutManager = LinearLayoutManager(this)
+        binding.rvDestinos.adapter = adapter
+
+        escucharDestinos()
+    }
+
+    private fun escucharDestinos() {
+        db.collection("destinos")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null || snapshot == null) return@addSnapshotListener
+
+                val destinos = snapshot.documents.mapNotNull { doc ->
+                    doc.toObject(Destino::class.java)?.apply { id = doc.id }
+                }
+                adapter.actualizarLista(destinos)
+            }
     }
 }
