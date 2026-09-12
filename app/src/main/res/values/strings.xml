@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AgenciaViajes</string>
+    <string name="app_name">Tripcito503</string>
     <string name="correo_hint">Correo electrónico</string>
     <string name="password_hint">Contraseña</string>
     <string name="btn_login">Iniciar sesión</string>
