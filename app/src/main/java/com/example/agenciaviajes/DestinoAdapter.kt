@@ -28,7 +28,7 @@ class DestinoAdapter(
         val destino = destinos[position]
         with(holder.binding) {
             tvNombre.text = destino.nombre
-            tvPrecio.text = "$${destino.precio}"
+            tvPrecio.text = "$${"%.2f".format(destino.precio)}"
             tvDescripcion.text = destino.descripcion
 
             if (destino.imagenPath.isNotEmpty()) {

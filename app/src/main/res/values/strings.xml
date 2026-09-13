@@ -40,4 +40,5 @@
     <string name="btn_cerrar_sesion">Cerrar sesión</string>
     <string name="titulo_login">Bienvenido de vuelta</string>
     <string name="subtitulo_login">Inicia sesión para gestionar tus destinos</string>
+    <string name="titulo_catalogo">Mis Destinos</string>
 </resources>

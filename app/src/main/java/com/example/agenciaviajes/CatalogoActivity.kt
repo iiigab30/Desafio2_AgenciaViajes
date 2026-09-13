@@ -20,6 +20,7 @@ class CatalogoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCatalogoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
 
         adapter = DestinoAdapter(
             listaDestinos,
@@ -33,13 +34,22 @@ class CatalogoActivity : AppCompatActivity() {
             startActivity(Intent(this, CrearDestinoActivity::class.java))
         }
 
-        binding.btnCerrarSesion.setOnClickListener {
+        escucharDestinos()
+    }
+
+    override fun onCreateOptionsMenu(menu: android.view.Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_catalogo, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        if (item.itemId == R.id.action_cerrar_sesion) {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+            return true
         }
-
-        escucharDestinos()
+        return super.onOptionsItemSelected(item)
     }
 
     private fun escucharDestinos() {
