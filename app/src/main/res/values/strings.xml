@@ -38,4 +38,6 @@
     <string name="cancelar">Cancelar</string>
 
     <string name="btn_cerrar_sesion">Cerrar sesión</string>
+    <string name="titulo_login">Bienvenido de vuelta</string>
+    <string name="subtitulo_login">Inicia sesión para gestionar tus destinos</string>
 </resources>
