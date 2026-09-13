@@ -29,4 +29,4 @@ La APK de la última versión funcional se encuentra en la raíz de este
 repositorio: `AgenciaViajes.apk`
 
 ## Video de defensa
-[]
+[https://drive.google.com/drive/folders/1vyPGY_Ox_Cc2V6453kZJk2nr-9Qn_MoP?usp=sharing]
