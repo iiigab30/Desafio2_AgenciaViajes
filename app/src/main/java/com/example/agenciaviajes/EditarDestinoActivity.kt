@@ -36,6 +36,8 @@ class EditarDestinoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarDestinoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         destinoId = intent.getStringExtra("destinoId") ?: run {
             finish() // si no llegó un ID válido, no tiene sentido seguir

@@ -17,5 +17,10 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="RoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
     <style name="Theme.AgenciaViajes" parent="Base.Theme.AgenciaViajes" />
 </resources>

@@ -32,6 +32,8 @@ class CrearDestinoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCrearDestinoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
 
         ArrayAdapter.createFromResource(
